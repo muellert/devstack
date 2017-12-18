@@ -64,6 +64,10 @@ export_proxy_variables
 PACKAGES=$(get_packages general,$ENABLED_SERVICES)
 PACKAGES="$PACKAGES $(get_plugin_packages)"
 
+if [ $os_CODENAME = 'buster' ]; then
+	PACKAGES="${PACKAGES//libmysqlclient-dev/default-libmysqlclient-dev}"
+fi
+
 if is_ubuntu && echo $PACKAGES | grep -q dkms ; then
     # Ensure headers for the running kernel are installed for any DKMS builds
     PACKAGES="$PACKAGES linux-headers-$(uname -r)"
