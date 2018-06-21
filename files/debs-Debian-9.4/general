@@ -5,8 +5,6 @@ bridge-utils
 bsdmainutils
 curl
 default-jre-headless  # NOPRIME
-#g++
-#gcc
 build-essential
 gettext  # used for compiling message catalogs
 git
